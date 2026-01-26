@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.stat {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.stat span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.remaining span {
+  color: #4ecdc4;
+}
+
+.archived span {
+  color: #ff6b6b;
+}
+
+.card-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  max-height: 60vh;
+  margin-bottom: 20px;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  cursor: grab;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+  background: #2a2a4a;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.card.animate-left {
+  animation: swipeLeft 0.3s ease-out forwards;
+}
+
+.card.animate-right {
+  animation: swipeRight 0.3s ease-out forwards;
+}
+
+@keyframes swipeLeft {
+  to {
+    transform: translateX(-150%) rotate(-30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swipeRight {
+  to {
+    transform: translateX(150%) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 30px;
+  font-size: 32px;
+  font-weight: bold;
+  border: 4px solid;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+}
+
+.overlay-left {
+  left: 20px;
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+  transform: translateY(-50%) rotate(-15deg);
+}
+
+.overlay-right {
+  right: 20px;
+  color: #4ecdc4;
+  border-color: #4ecdc4;
+  transform: translateY(-50%) rotate(15deg);
+}
+
+.empty-state {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+.empty-state.visible {
+  display: flex;
+}
+
+.empty-state p {
+  opacity: 0.6;
+  font-size: 18px;
+}
+
+.controls {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn .icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.btn-archive {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+  color: white;
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4);
+}
+
+.btn-keep {
+  background: linear-gradient(135deg, #4ecdc4, #3dbdb5);
+  color: white;
+  box-shadow: 0 4px 20px rgba(78, 205, 196, 0.4);
+}
+
+.hint {
+  font-size: 12px;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.card.hidden {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding: 15px;
+  }
+
+  .card-container {
+    max-height: 55vh;
+  }
+
+  .btn {
+    width: 70px;
+    height: 70px;
+  }
+}

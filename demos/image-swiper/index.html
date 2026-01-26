@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Swiper - Tinder-Style Photo Organizer Demo</title>
+  <meta name="description" content="Interactive demo of Image Swiper - a Tinder-style photo organizer with swipe gestures. Part of Claude Code for Creatives.">
+  <meta name="author" content="Sultan Peyek">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖼️</text></svg>">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo/demos/image-swiper/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Image Swiper">
+  <meta property="og:url" content="https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo/demos/image-swiper/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Image Swiper - Tinder-Style Photo Organizer Demo">
+  <meta property="og:description" content="Interactive demo of Image Swiper - a Tinder-style photo organizer with swipe gestures. Part of Claude Code for Creatives.">
+  <meta property="og:image" content="https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo/demos/image-swiper/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Image Swiper - Photo organizer with swipe gestures">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@sultanpeyek">
+  <meta name="twitter:creator" content="@sultanpeyek">
+  <meta name="twitter:title" content="Image Swiper - Tinder-Style Photo Organizer Demo">
+  <meta name="twitter:description" content="Interactive demo of Image Swiper - a Tinder-style photo organizer with swipe gestures. Part of Claude Code for Creatives.">
+  <meta name="twitter:image" content="https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo/demos/image-swiper/og-image.png">
+  <meta name="twitter:image:alt" content="Image Swiper - Photo organizer with swipe gestures">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "name": "Image Swiper",
+    "description": "Tinder-style photo organizer with swipe gestures for sorting images into keep or archive folders.",
+    "url": "https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo/demos/image-swiper/",
+    "author": {
+      "@type": "Person",
+      "name": "Sultan Peyek",
+      "url": "https://github.com/sultanpeyek"
+    },
+    "@type": "WebApplication",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-banner">
+    <strong>DEMO MODE</strong> - This is a preview. <a href="../../#image-swiper-install">Install locally</a> to use with your own images.
+  </div>
+
+  <div class="container">
+    <header class="stats">
+      <span class="stat remaining"><span id="remaining">5</span> remaining</span>
+      <span class="stat archived"><span id="archived">0</span> archived</span>
+    </header>
+
+    <div class="card-container">
+      <div class="card" id="card">
+        <div class="placeholder-image" id="card-image">
+          <div class="placeholder-content">
+            <div class="placeholder-icon">&#128247;</div>
+            <div class="placeholder-text">Sample Image</div>
+          </div>
+        </div>
+        <div class="overlay overlay-left">ARCHIVE</div>
+        <div class="overlay overlay-right">KEEP</div>
+      </div>
+      <div class="empty-state" id="empty-state">
+        <p>No more images to review!</p>
+        <button class="btn btn-reset" id="reset-btn">Reset Demo</button>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-archive" id="btn-archive">
+        <span class="icon">&#x2715;</span>
+        Archive
+      </button>
+      <button class="btn btn-keep" id="btn-keep">
+        <span class="icon">&#x2713;</span>
+        Keep
+      </button>
+    </div>
+
+    <p class="hint">Use arrow keys (&larr; &rarr;) or swipe to navigate</p>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

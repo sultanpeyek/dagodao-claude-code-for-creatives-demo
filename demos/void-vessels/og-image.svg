@@ -1,0 +1,76 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="100%" style="stop-color:#0f0f1a"/>
+    </linearGradient>
+    <linearGradient id="wire" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Star field -->
+  <g fill="#ffffff">
+    <circle cx="100" cy="80" r="1" fill-opacity="0.3"/>
+    <circle cx="250" cy="150" r="1.5" fill-opacity="0.5"/>
+    <circle cx="400" cy="60" r="1" fill-opacity="0.2"/>
+    <circle cx="550" cy="120" r="1" fill-opacity="0.4"/>
+    <circle cx="750" cy="70" r="1.5" fill-opacity="0.3"/>
+    <circle cx="900" cy="140" r="1" fill-opacity="0.5"/>
+    <circle cx="1050" cy="90" r="1" fill-opacity="0.2"/>
+    <circle cx="1120" cy="180" r="1.5" fill-opacity="0.4"/>
+    <circle cx="80" cy="400" r="1" fill-opacity="0.3"/>
+    <circle cx="200" cy="520" r="1.5" fill-opacity="0.4"/>
+    <circle cx="1000" cy="450" r="1" fill-opacity="0.3"/>
+    <circle cx="1100" cy="380" r="1.5" fill-opacity="0.5"/>
+  </g>
+
+  <!-- Wireframe ship -->
+  <g transform="translate(600, 240)" stroke="url(#wire)" stroke-width="2" fill="none">
+    <!-- Main hull -->
+    <polygon points="0,-120 80,-40 80,60 40,120 -40,120 -80,60 -80,-40" stroke-opacity="0.9"/>
+
+    <!-- Inner structure -->
+    <polygon points="0,-80 50,-30 50,40 25,80 -25,80 -50,40 -50,-30" stroke-opacity="0.6"/>
+
+    <!-- Core -->
+    <polygon points="0,-40 25,-15 25,20 12,40 -12,40 -25,20 -25,-15" stroke-opacity="0.4"/>
+
+    <!-- Wings -->
+    <line x1="-80" y1="0" x2="-140" y2="-30" stroke-opacity="0.8"/>
+    <line x1="-80" y1="0" x2="-140" y2="30" stroke-opacity="0.8"/>
+    <line x1="-140" y1="-30" x2="-140" y2="30" stroke-opacity="0.8"/>
+
+    <line x1="80" y1="0" x2="140" y2="-30" stroke-opacity="0.8"/>
+    <line x1="80" y1="0" x2="140" y2="30" stroke-opacity="0.8"/>
+    <line x1="140" y1="-30" x2="140" y2="30" stroke-opacity="0.8"/>
+
+    <!-- Engine trails -->
+    <line x1="-30" y1="120" x2="-40" y2="160" stroke-opacity="0.4"/>
+    <line x1="0" y1="120" x2="0" y2="170" stroke-opacity="0.5"/>
+    <line x1="30" y1="120" x2="40" y2="160" stroke-opacity="0.4"/>
+
+    <!-- Cross beams -->
+    <line x1="-80" y1="-40" x2="80" y2="60" stroke-opacity="0.2"/>
+    <line x1="80" y1="-40" x2="-80" y2="60" stroke-opacity="0.2"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="700" fill="#ffffff" text-anchor="middle">Void Vessels</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="520" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#a1a1aa" text-anchor="middle">Procedural NFT Ship Generator</text>
+
+  <!-- Seed indicator -->
+  <g transform="translate(600, 565)">
+    <rect x="-60" y="-18" width="120" height="36" rx="18" fill="#1a1a2e"/>
+    <text x="0" y="6" font-family="ui-monospace, monospace" font-size="14" fill="#06b6d4" text-anchor="middle">SEED: 12345</text>
+  </g>
+
+  <!-- Author -->
+  <text x="600" y="612" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#52525b" text-anchor="middle">by Sultan Peyek</text>
+</svg>

@@ -1,0 +1,240 @@
+# Single Source of Truth for Metadata
+# Run `/apply-metadata` to sync values to all target files
+# NOTE: Do NOT use scripts/build-meta.js - use `/apply-metadata` skill instead
+
+metadata:
+  # Project identity
+  title: 'Claude Code for Creatives'
+  short_name: 'CC4C Demo'
+  description:
+    "Two interactive demos showcasing Claude Code's capabilities for creative
+    development projects."
+  version: '1.0.0'
+
+  # URLs
+  urls:
+    base: 'https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo'
+    repo: 'https://github.com/sultanpeyek/dagodao-claude-code-for-creatives-demo'
+    docs: 'https://docs.anthropic.com/en/docs/claude-code'
+    presentation: 'https://sultanpeyek.github.io/dagodao-claude-code-for-creatives'
+
+  # Author - the person who created this project
+  author:
+    name: 'Sultan Peyek'
+    handle: 'sultanpeyek'
+    url: 'https://github.com/sultanpeyek'
+    twitter: '@sultanpeyek'
+
+  # Event/Organization where this was presented
+  event:
+    name: 'DagoDAO'
+    type: 'Peer Sharing Event'
+    description: 'Presented at DagoDAO peer sharing session'
+
+  # Colors
+  colors:
+    theme: '#0d0d0d'
+    background: '#0d0d0d'
+
+  # Open Graph defaults
+  og:
+    type: 'website'
+    locale: 'en_US'
+    site_name: 'Claude Code for Creatives'
+    image: 'assets/og-image.png'
+    image_width: 1200
+    image_height: 630
+    image_type: 'image/png'
+    image_alt: 'Claude Code for Creatives - AI-assisted development demos'
+
+  # Twitter defaults
+  twitter:
+    card: 'summary_large_image'
+    site: '@sultanpeyek'
+    creator: '@sultanpeyek'
+
+  # Defaults
+  defaults:
+    lang: 'en'
+    robots: 'index, follow'
+    color_scheme: 'dark'
+
+# Page-specific overrides
+pages:
+  landing:
+    path: '/'
+    favicon: "\U0001F3A8" # 🎨
+    json_ld_type: 'WebSite'
+
+  image_swiper:
+    path: '/demos/image-swiper/'
+    title: 'Image Swiper - Tinder-Style Photo Organizer'
+    description:
+      'Tinder-style photo organizer with swipe gestures for sorting images into
+      keep or archive folders.'
+    colors:
+      theme: '#1a1a2e'
+    favicon: "\U0001F5BC" # 🖼️
+    og:
+      site_name: 'Image Swiper'
+      image: 'demos/image-swiper/og-image.png'
+      image_alt: 'Image Swiper - Photo organizer with swipe gestures'
+    json_ld:
+      type: 'WebApplication'
+      applicationCategory: 'UtilitiesApplication'
+      operatingSystem: 'Web Browser'
+      offers:
+        type: 'Offer'
+        price: '0'
+        priceCurrency: 'USD'
+
+  void_vessels:
+    path: '/demos/void-vessels/'
+    title: 'Void Vessels - Procedural NFT Ship Generator'
+    description:
+      'Generate unique procedural wireframe spacecraft from numeric seeds.
+      Create deterministic NFT-ready ship designs.'
+    colors:
+      theme: '#0a0a0f'
+    favicon: "\U0001F680" # 🚀
+    og:
+      site_name: 'Void Vessels'
+      image: 'demos/void-vessels/og-image.png'
+      image_alt: 'Void Vessels - Procedural wireframe spacecraft generator'
+    json_ld:
+      type: 'WebApplication'
+      applicationCategory: 'DesignApplication'
+      operatingSystem: 'Web Browser'
+      offers:
+        type: 'Offer'
+        price: '0'
+        priceCurrency: 'USD'
+
+# Target files to sync metadata to
+targets:
+  # Root package.json
+  - path: 'package.json'
+    type: json
+    mappings:
+      name: 'dagodao-claude-code-for-creatives-demo'
+      version: metadata.version
+      description: metadata.description
+      author: metadata.creator.name
+      repository.url: metadata.urls.repo
+
+  # Landing page HTML
+  - path: 'index.html'
+    type: html
+    page: landing
+    mappings:
+      - selector: 'title'
+        value: metadata.title
+      - selector: 'meta[name="description"]'
+        attr: content
+        value: metadata.description
+      - selector: 'meta[name="author"]'
+        attr: content
+        value: metadata.author.name
+      - selector: 'meta[name="theme-color"]'
+        attr: content
+        value: metadata.colors.theme
+      - selector: 'link[rel="canonical"]'
+        attr: href
+        value: '${metadata.urls.base}/'
+      - selector: 'meta[property="og:url"]'
+        attr: content
+        value: '${metadata.urls.base}/'
+      - selector: 'meta[property="og:title"]'
+        attr: content
+        value: metadata.title
+      - selector: 'meta[property="og:description"]'
+        attr: content
+        value: metadata.description
+      - selector: 'meta[property="og:image"]'
+        attr: content
+        value: '${metadata.urls.base}/${metadata.og.image}'
+      - selector: 'meta[name="twitter:title"]'
+        attr: content
+        value: metadata.title
+      - selector: 'meta[name="twitter:description"]'
+        attr: content
+        value: metadata.description
+      - selector: 'meta[name="twitter:image"]'
+        attr: content
+        value: '${metadata.urls.base}/${metadata.og.image}'
+
+  # Demo 1: Image Swiper
+  - path: 'demo-1-final/public/index.html'
+    type: html
+    page: image_swiper
+    mappings:
+      - selector: 'title'
+        value: pages.image_swiper.title
+      - selector: 'meta[name="description"]'
+        attr: content
+        value: pages.image_swiper.description
+      - selector: 'meta[name="theme-color"]'
+        attr: content
+        value: pages.image_swiper.colors.theme
+      - selector: 'link[rel="canonical"]'
+        attr: href
+        value: '${metadata.urls.base}${pages.image_swiper.path}'
+      - selector: 'meta[property="og:url"]'
+        attr: content
+        value: '${metadata.urls.base}${pages.image_swiper.path}'
+      - selector: 'meta[property="og:title"]'
+        attr: content
+        value: pages.image_swiper.title
+      - selector: 'meta[property="og:description"]'
+        attr: content
+        value: pages.image_swiper.description
+      - selector: 'meta[property="og:image"]'
+        attr: content
+        value: '${metadata.urls.base}/${pages.image_swiper.og.image}'
+      - selector: 'meta[name="twitter:title"]'
+        attr: content
+        value: pages.image_swiper.title
+      - selector: 'meta[name="twitter:description"]'
+        attr: content
+        value: pages.image_swiper.description
+      - selector: 'meta[name="twitter:image"]'
+        attr: content
+        value: '${metadata.urls.base}/${pages.image_swiper.og.image}'
+
+  # Demo 2: Void Vessels
+  - path: 'demo-2-final/public/index.html'
+    type: html
+    page: void_vessels
+    mappings:
+      - selector: 'title'
+        value: pages.void_vessels.title
+      - selector: 'meta[name="description"]'
+        attr: content
+        value: pages.void_vessels.description
+      - selector: 'meta[name="theme-color"]'
+        attr: content
+        value: pages.void_vessels.colors.theme
+      - selector: 'link[rel="canonical"]'
+        attr: href
+        value: '${metadata.urls.base}${pages.void_vessels.path}'
+      - selector: 'meta[property="og:url"]'
+        attr: content
+        value: '${metadata.urls.base}${pages.void_vessels.path}'
+      - selector: 'meta[property="og:title"]'
+        attr: content
+        value: pages.void_vessels.title
+      - selector: 'meta[property="og:description"]'
+        attr: content
+        value: pages.void_vessels.description
+      - selector: 'meta[property="og:image"]'
+        attr: content
+        value: '${metadata.urls.base}/${pages.void_vessels.og.image}'
+      - selector: 'meta[name="twitter:title"]'
+        attr: content
+        value: pages.void_vessels.title
+      - selector: 'meta[name="twitter:description"]'
+        attr: content
+        value: pages.void_vessels.description
+      - selector: 'meta[name="twitter:image"]'
+        attr: content
+        value: '${metadata.urls.base}/${pages.void_vessels.og.image}'

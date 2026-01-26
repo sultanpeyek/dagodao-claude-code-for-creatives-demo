@@ -1,0 +1,33 @@
+{
+  "name": "procedural-ship-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Procedural NFT ship generator with Three.js wireframe rendering",
+  "scripts": {
+    "start": "bun server.js",
+    "dev": "bun --watch server.js",
+    "remotion:studio": "npx remotion studio remotion/src/index.ts",
+    "remotion:render": "bun scripts/renderShips.ts",
+    "remotion:render:video": "bun scripts/renderShips.ts --video",
+    "remotion:render:single-video": "npx remotion render remotion/src/index.ts VoidVesselVideo --codec=h264 --gl=angle"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.5.0",
+    "@remotion/bundler": "^4.0.409",
+    "@remotion/cli": "^4.0.409",
+    "@remotion/renderer": "^4.0.409",
+    "@remotion/three": "^4.0.409",
+    "@remotion/transitions": "4.0.409",
+    "express": "^4.18.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "remotion": "^4.0.409",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.9",
+    "@types/three": "^0.182.0",
+    "nodemon": "^3.0.2",
+    "typescript": "^5.9.3"
+  }
+}

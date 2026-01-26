@@ -1,0 +1,78 @@
+# Sync Demo Previews Workflow
+#
+# PURPOSE: Auto-sync source files to GitHub Pages demos when SSOT files change
+#
+# FOR CLAUDE CODE AGENTS:
+# - Demo 1: demo-1-final/public/styles.css -> demos/image-swiper/base.css
+# - Demo 2: demo-2-final/lib,config,viewer.js -> demos/void-vessels/
+# - Scripts: scripts/sync-*.sh (reusable, can run locally)
+# - Manual sync: ./scripts/sync-demos.sh
+# - Manual trigger: Go to Actions tab and run "Sync Demo Previews"
+
+name: Sync Demo Previews
+
+on:
+  push:
+    branches: [main]
+    paths:
+      # Demo 1 SSOT
+      - 'demo-1-final/public/styles.css'
+      # Demo 2 SSOT
+      - 'demo-2-final/lib/**'
+      - 'demo-2-final/config/**'
+      - 'demo-2-final/public/viewer.js'
+      # Sync scripts themselves
+      - 'scripts/sync-*.sh'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-demo-previews
+  cancel-in-progress: false
+
+jobs:
+  sync-demos:
+    name: Sync All Demos
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run sync scripts
+        run: |
+          chmod +x scripts/sync-demos.sh scripts/sync-*.sh
+          ./scripts/sync-demos.sh
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add demos/
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changed files:"
+            git diff --staged --stat
+          fi
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: sync demo previews [skip ci]"
+          git push
+
+      - name: Workflow summary
+        run: |
+          echo "## Sync Demo Previews" >> $GITHUB_STEP_SUMMARY
+          if [[ "${{ steps.changes.outputs.has_changes }}" == "true" ]]; then
+            echo "Changes synced and committed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No changes - demos already in sync" >> $GITHUB_STEP_SUMMARY
+          fi

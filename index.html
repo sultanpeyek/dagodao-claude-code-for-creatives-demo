@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code for Creatives</title>
+  <meta name="description" content="Two interactive demos showcasing Claude Code's capabilities for creative development projects.">
+  <meta name="author" content="Sultan Peyek">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Claude Code for Creatives">
+  <meta property="og:url" content="https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Claude Code for Creatives">
+  <meta property="og:description" content="Two interactive demos showcasing Claude Code's capabilities for creative development projects.">
+  <meta property="og:image" content="https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Claude Code for Creatives - AI-assisted development demos">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@sultanpeyek">
+  <meta name="twitter:creator" content="@sultanpeyek">
+  <meta name="twitter:title" content="Claude Code for Creatives">
+  <meta name="twitter:description" content="Two interactive demos showcasing Claude Code's capabilities for creative development projects.">
+  <meta name="twitter:image" content="https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo/assets/og-image.png">
+  <meta name="twitter:image:alt" content="Claude Code for Creatives - AI-assisted development demos">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "name": "Claude Code for Creatives",
+    "description": "Two interactive demos showcasing Claude Code's capabilities for creative development projects.",
+    "url": "https://sultanpeyek.github.io/dagodao-claude-code-for-creatives-demo/",
+    "author": {
+      "@type": "Person",
+      "name": "Sultan Peyek",
+      "url": "https://github.com/sultanpeyek"
+    },
+    "@type": "WebSite",
+    "creator": {
+      "@type": "Person",
+      "name": "sultanpeyek",
+      "url": "https://github.com/sultanpeyek"
+    }
+  }
+  </script>
+
+
+  <link rel="stylesheet" href="assets/css/landing.css">
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>Claude Code for Creatives</h1>
+      <p class="tagline">Two interactive demos built with Claude Code, showcasing AI-assisted development for creative projects</p>
+    </header>
+
+    <main>
+      <section class="demos">
+        <article class="demo-card">
+          <div class="demo-preview demo-1-preview">
+            <div class="preview-ui">
+              <div class="mock-card"></div>
+              <div class="mock-buttons">
+                <span class="mock-btn archive"></span>
+                <span class="mock-btn keep"></span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-info">
+            <h2>Image Swiper</h2>
+            <p class="demo-subtitle">Tinder-style Photo Organizer</p>
+            <p class="demo-description">
+              A gesture-based image review tool. Swipe left to archive, right to keep.
+              Built with vanilla JavaScript and Hammer.js for touch gestures.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">Hammer.js</span>
+            </div>
+            <div class="demo-actions">
+              <a href="demos/image-swiper/" class="btn btn-secondary">View Demo (Preview)</a>
+              <a href="#image-swiper-install" class="btn btn-outline">Local Install</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="demo-card">
+          <div class="demo-preview demo-2-preview">
+            <div class="preview-ui">
+              <svg class="ship-wireframe" viewBox="0 0 100 100">
+                <path d="M20,50 L80,50 M50,20 L50,80 M25,30 L75,70 M75,30 L25,70" stroke="currentColor" fill="none" stroke-width="1"/>
+                <polygon points="50,15 85,50 50,85 15,50" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <polygon points="50,25 75,50 50,75 25,50" fill="none" stroke="currentColor" stroke-width="1"/>
+              </svg>
+            </div>
+          </div>
+          <div class="demo-info">
+            <h2>Void Vessels</h2>
+            <p class="demo-subtitle">Procedural NFT Ship Generator</p>
+            <p class="demo-description">
+              Generate unique wireframe spacecraft from numeric seeds. Features deterministic
+              procedural generation with rarity tiers and metadata export.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Three.js</span>
+              <span class="tech-tag">Bun</span>
+              <span class="tech-tag">Remotion</span>
+            </div>
+            <div class="demo-actions">
+              <a href="demos/void-vessels/" class="btn btn-primary">Try Live Demo</a>
+              <a href="#void-vessels-install" class="btn btn-outline">Full Install</a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="installation" id="installation">
+        <h2>Local Installation</h2>
+
+        <div class="install-block" id="image-swiper-install">
+          <h3>Image Swiper</h3>
+          <pre><code>cd demo-1-final
+bun install
+bun start
+# Open http://localhost:3000</code></pre>
+          <p class="install-note">Place your images in the <code>unorganized-files</code> folder before starting.</p>
+        </div>
+
+        <div class="install-block" id="void-vessels-install">
+          <h3>Void Vessels</h3>
+          <pre><code>cd demo-2-final
+bun install
+bun dev
+# Open http://localhost:5173</code></pre>
+          <p class="install-note">Requires <a href="https://bun.sh" target="_blank">Bun</a> runtime. See <code>docs/COMMANDS.md</code> for rendering options.</p>
+        </div>
+      </section>
+
+      <section class="about">
+        <h2>About This Project</h2>
+        <p>
+          These demos were built collaboratively with <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank">Claude Code</a>,
+          demonstrating how AI can assist with creative development workflows. Each demo includes
+          chat history logs showing the development process.
+        </p>
+        <div class="links">
+          <a href="https://sultanpeyek.github.io/dagodao-claude-code-for-creatives" target="_blank" class="link-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <path d="M8 21h8"/>
+              <path d="M12 17v4"/>
+            </svg>
+            View Presentation
+          </a>
+          <a href="https://github.com/sultanpeyek/dagodao-claude-code-for-creatives-demo" target="_blank" class="link-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            View on GitHub
+          </a>
+          <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" class="link-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            Claude Code Docs
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built with Claude Code by <a href="https://github.com/sultanpeyek" target="_blank">sultanpeyek</a></p>
+    </footer>
+  </div>
+</body>
+</html>

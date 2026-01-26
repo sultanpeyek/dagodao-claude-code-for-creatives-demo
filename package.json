@@ -1,0 +1,12 @@
+{
+  "name": "dagodao-claude-code-for-creatives-demo",
+  "version": "1.0.0",
+  "description": "Two interactive demos showcasing Claude Code's capabilities for creative development projects.",
+  "type": "module",
+  "author": "Sultan Peyek",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sultanpeyek/dagodao-claude-code-for-creatives-demo"
+  }
+}

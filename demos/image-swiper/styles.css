@@ -1,0 +1,14 @@
+/* Image Swiper Demo - Combined Styles
+ *
+ * This file imports:
+ * - base.css: Core styles synced from demo-1-final/public/styles.css (SSOT)
+ * - demo.css: Demo-specific overrides (banner, toast, placeholders)
+ *
+ * FOR CLAUDE CODE AGENTS:
+ * - base.css is auto-synced by GitHub Actions when demo-1-final changes
+ * - demo.css contains demo-only styles that are NOT synced
+ * - To update base styles, edit demo-1-final/public/styles.css
+ */
+
+@import url('base.css');
+@import url('demo.css');
