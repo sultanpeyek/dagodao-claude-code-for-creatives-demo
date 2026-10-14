@@ -8,5 +8,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/sultanpeyek/dagodao-claude-code-for-creatives-demo"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
